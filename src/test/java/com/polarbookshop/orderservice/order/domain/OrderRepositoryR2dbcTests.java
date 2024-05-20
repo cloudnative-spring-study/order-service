@@ -1,4 +1,4 @@
-package com.polarbookshop.orderservice.domain;
+package com.polarbookshop.orderservice.order.domain;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +12,6 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
 
 import com.polarbookshop.orderservice.config.DataConfig;
-import com.polarbookshop.orderservice.order.domain.OrderRepository;
-import com.polarbookshop.orderservice.order.domain.OrderService;
-import com.polarbookshop.orderservice.order.domain.OrderStatus;
 
 import reactor.test.StepVerifier;
 
