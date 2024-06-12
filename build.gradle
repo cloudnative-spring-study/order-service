@@ -18,6 +18,7 @@ repositories {
 ext {
   	set('springCloudVersion', "2023.0.1")
   	set('testcontainersVersion', "1.19.8")
+	set('testKeycloakVersion', "3.3.1")
 }
 
 
@@ -40,10 +41,11 @@ compileTestJava {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	implementation 'org.springframework.cloud:spring-cloud-starter-config'
-	implementation 'org.springframework.retry:spring-retry'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
 	implementation 'org.springframework.cloud:spring-cloud-stream-binder-rabbit'
+	implementation 'org.springframework.retry:spring-retry'
 
 	runtimeOnly 'org.flywaydb:flyway-core'
 	runtimeOnly 'org.postgresql:postgresql'
@@ -52,12 +54,14 @@ dependencies {
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation 'org.springframework.cloud:spring-cloud-stream-test-binder'
 	testImplementation 'io.projectreactor:reactor-test'
 	testImplementation 'org.testcontainers:junit-jupiter'
 	testImplementation 'org.testcontainers:postgresql'
 	testImplementation 'org.testcontainers:r2dbc'
 	testImplementation 'com.squareup.okhttp3:mockwebserver'
-	testImplementation 'org.springframework.cloud:spring-cloud-stream-test-binder'
+	testImplementation "com.github.dasniko:testcontainers-keycloak:${testKeycloakVersion}"
 
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
