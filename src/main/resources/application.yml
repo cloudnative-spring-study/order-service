@@ -11,6 +11,7 @@ spring:
     import: "optional:configserver:"
   cloud:
     config:
+      enabled: false
       uri:
         - http://host.docker.internal:8888
       request-connect-timeout: 5000
